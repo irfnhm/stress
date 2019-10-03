@@ -6,4 +6,5 @@ Python3
 
 ## Usage
 $ cd stress
+
 $ python3 stress.py
