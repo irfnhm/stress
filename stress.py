@@ -1,13 +1,23 @@
 #Sends parallel GET requests
 
+import os
 import asyncio
 import concurrent.futures
 import requests
 
 async def main():
+    print("Note: while you start sending multiple GET requests, it is recommended to monitor your site health status.")
+    url = input("Enter the site url you want to stress test: ")
+    response = os.system("ping -c 1 " + url)
+    if response == 0:
+      print (url, 'is up.')
+    else:
+      print (url, 'is down.')
+      exit()
     workers = int(input("Enter the max number of workers: "))
     get_requests = int(input("Enter the number of GET requests you want to send: "))
     print("Sending GET...")
+    print("Please wait until the test is finished.")
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
 
         loop = asyncio.get_event_loop()
@@ -15,7 +25,7 @@ async def main():
             loop.run_in_executor(
                 executor,
                 requests.get,
-                'https://indiaforchange.org/'
+                url
             )
             #Change number in range according to the requests you want to send
             for i in range(get_requests)
