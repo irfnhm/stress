@@ -2,12 +2,16 @@
 Send parallel GET requests to a web server
 
 ## Requirements
-Python3
+Python - v3
 
 ## Usage
+```
+$ git clone https://github.com/malwarebo/stress
+
 $ cd stress
 
-$ python3 stress.py
+$ python stress.py
+```
 
 ### Note
 Don't use higher number of workers, it will use more CPU power and may freeze your system.
