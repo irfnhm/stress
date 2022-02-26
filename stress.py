@@ -9,14 +9,14 @@ async def main():
     print('Note: while you start sending multiple GET requests, it is recommended to monitor your site health status.')
     url = input('Host: ')
 
-    #Ping is optional. Use it if you wanna see if the host is up before stressing
+    # Ping is optional. Use it if you wanna see if the host is up before stressing
     #response = os.system("ping -c 1 " + url)
     #if response == 0:
     #  print (url, 'is up.')
     #else:
-    #  print (url, 'is down.')
+    #  print (url, 'is not responding.')
     #  exit()
-    #Ping section ends here
+    # Ping section ends here
 
     workers = int(input('Number of workers/threads: '))
     get_requests = int(input('Number of GET requests ( > 1): '))
